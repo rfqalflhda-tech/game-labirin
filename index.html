@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Sifat Koligatif: Maze Chase</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div id="game-container">
+        <!-- Panel HUD Atas -->
+        <div id="hud" class="glass">
+            <div class="top-stats">
+                <div class="stat-badge">⭐ Skor: <span id="skor">0</span></div>
+                <div class="stat-badge">❤️ Nyawa: <span id="nyawa">9</span></div>
+                <!-- Tombol Pengaturan (Gear) -->
+                <button id="btn-settings" class="settings-btn">⚙️</button>
+            </div>
+            <div id="soal-container">
+                <div id="teks-soal">Memuat soal...</div>
+            </div>
+        </div>
+
+        <!-- Area Kanvas Labirin -->
+        <canvas id="gameCanvas" width="750" height="550"></canvas>
+
+        <!-- D-Pad Kontrol Mobile -->
+        <div id="mobile-dpad">
+            <button id="btn-up" class="dpad-btn glass">⬆️</button>
+            <div class="dpad-middle">
+                <button id="btn-left" class="dpad-btn glass">⬅️</button>
+                <button id="btn-right" class="dpad-btn glass">➡️</button>
+            </div>
+            <button id="btn-down" class="dpad-btn glass">⬇️</button>
+        </div>
+
+        <!-- MENU 1: LAYAR MULAI -->
+        <div id="start-screen" class="glass-overlay">
+            <div class="menu-box">
+                <h1>Sifat Koligatif<br>Maze Chase</h1>
+                <p>Bantu astronot menemukan jawaban yang tepat di labirin es bersalju!</p>
+                <button id="btn-start" class="btn-primary">MULAI BERMAIN</button>
+            </div>
+        </div>
+
+        <!-- MENU 2: PILIH LEVEL -->
+        <div id="level-screen" class="glass-overlay hidden">
+            <div class="menu-box">
+                <h2>Pilih Tingkat Kesulitan</h2>
+                <div class="level-buttons">
+                    <button class="btn-level btn-easy" data-speed="0.8">🟢 EASY (Santai)</button>
+                    <button class="btn-level btn-normal" data-speed="1.2">🟡 NORMAL (Sedang)</button>
+                    <button class="btn-level btn-hard" data-speed="1.8">🔴 HARD (Menantang!)</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MENU 3: PENGATURAN (SETTINGS POPUP) -->
+        <div id="settings-modal" class="glass-overlay hidden">
+            <div class="menu-box">
+                <h2>PENGATURAN</h2>
+                <div class="level-buttons" style="margin: 20px 0;">
+                    <button id="btn-resume" class="btn-level btn-easy">▶️ Resume (Lanjutkan)</button>
+                    <button id="btn-restart-game" class="btn-level btn-normal">🔄 Restart (Ulangi)</button>
+                    <button id="btn-back-menu" class="btn-level btn-hard">🏠 Kembali (Pilih Level)</button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- MENU 4: PERMAINAN SELESAI -->
+        <div id="game-over" class="glass-overlay hidden">
+            <div class="menu-box">
+                <h2 style="color: #e74c3c;">PERMAINAN SELESAI</h2>
+                <p>Skor Akhir Kamu</p>
+                <h1 id="skor-akhir">0</h1>
+                <button onclick="location.reload()" class="btn-primary">Main Lagi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Game -->
+    <script src="js/game.js"></script>
+</body>
+</html>
